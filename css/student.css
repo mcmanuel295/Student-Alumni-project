@@ -1,0 +1,29 @@
+#stud_body{
+    background-color: white;
+    /* background-image: url('../file/grad.jpg'); */
+}
+
+#stud_h3{
+    color:grey;
+    margin:20px auto;
+}
+
+#stud_form_div{
+    background-color: rgb(212, 202, 202);
+    align-items: center;
+    width: 50%;
+    height:40%;
+    padding: 20px;
+    margin: auto;
+    
+}
+
+#stud_form{
+    background-color: rgb(212, 202, 202);
+    margin: auto;
+    box-shadow: 0px 10px 10px rgb(21, 5, 5);
+}
+
+#stud_sub{
+    margin: auto;
+}

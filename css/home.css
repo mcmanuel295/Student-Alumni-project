@@ -1,0 +1,22 @@
+#home_body{
+    border-top: solid red;
+}
+
+section > div{
+    display: inline-block;
+    grid-template-columns: 10fr 4fr;
+}
+
+#home_div1{
+    width: 60%;
+    height: 100%;
+}
+
+#home_div1{
+    width: 100%;
+}
+
+#home_div2{
+    height: 100%;
+}
+

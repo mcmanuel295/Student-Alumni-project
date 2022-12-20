@@ -1,0 +1,27 @@
+#alum_body{
+    background-color: white;
+}
+
+#alum_h3{
+    color:grey;
+    margin:20px auto;
+}
+
+#alum_form_div{
+    background-color: rgb(212, 202, 202);
+    width: 50%;
+    height:40%;
+    box-shadow: 30px;
+    padding: 20px;
+    margin: auto;
+
+}
+
+#alum_form{
+    background-color: rgb(212, 202, 202);
+    margin: auto;
+}
+
+#alum_sub{
+    margin: auto;
+}

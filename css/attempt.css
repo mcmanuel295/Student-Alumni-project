@@ -1,0 +1,17 @@
+div{
+    width: 130px;
+    height:80px;
+    border: red dashed ;
+    padding: 20px;
+    background-color: blue;
+    margin: 20%;
+    transition-duration: .5s;
+    transition-property:background-colour,width,transform;
+    transition-timing-function: ease-in;
+    transition-delay: .1s;
+}
+
+div:hover{
+    background-color: yellow;
+    transform: translateX(-340px);
+}
