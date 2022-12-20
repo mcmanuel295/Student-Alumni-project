@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/alumni.css">
     <link rel="stylesheet" href="../css/student.css">
-    <link rel="stylesheet" href="../css/alumAcc.css">
-    <link rel="stylesheet" href="../css/studAcc.css">
     <link rel="stylesheet" href="../css/footer.css">
 
 

@@ -4,18 +4,15 @@ require("./head.php");
 
 <body id="home_body">
     
-    <h1>UNIVERSITY OF WHATEVER</h1>
+    <h1>UNIVERSITY OF THE LEARNED</h1>
 
     <section>
-        <div id="home_div1" id="first">
             <img src="../file/view.jpg">
-        </div>
-
-        <div id="home_div2" id="sec">
         
-            <p>welcome to schoool
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur earum veniam numquam ratione praesentium consectetur hic doloribus illo? Unde quam obcaecati nemo culpa facilis 
+                    magnam corporis porro similique nisi rerum!
             </p>
-        </div>
+        
     
     </section>
     
