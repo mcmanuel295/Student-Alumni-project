@@ -1,12 +1,11 @@
-
 <footer id="footer">
-    <p> This is the University of whatever.
+    <p> This is the University of the learned.
         <span>Disclaimer: </span>
         Copy Right &copy
     </p>
-    <section>
-        <a href="">faceoook</a>
-        <a href=""> twittter</a>
-        <a href="">contact us </a>
+    <section id="footer_section">
+        <a href=""> <img  class="icons" src="../file/facebook.png"> </a>
+        <a href=""> <img class="icons" src="../file/twitter.png"></a>
+        <a href=""><img class="icons" src="../file/user1.jpg"> </a>
     </section>
 </footer>

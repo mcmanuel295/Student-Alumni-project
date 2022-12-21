@@ -1,6 +1,9 @@
 footer{
-    
+    padding: 1%;
+    border:5px solid rgb(255, 255, 255);
     background-color: rgb(118, 197, 223);
+    display: inline-block;
+    width: 100vw;
     
 }
 
@@ -8,6 +11,18 @@ footer{
     bottom: 0px;
 }
 
-section a{
-    text-decoration: none;
+#footer_section{
+    border:none;
+}
+
+#footer_section a{
+    width: 20px;
+    height: 40px;
+    display:inline-block;
+}
+
+.icons{
+    width: 70%;
+    height: 70%;
+    display:inline-block;
 }

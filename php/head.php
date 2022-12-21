@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Javascript  -->
-    <script type= "text/javascript" src="../js/head.js"></script>
+    <!-- <script type= "text/javascript" src="../js/head.js"></script> -->
 
     <!-- CSS link -->
     <link rel="stylesheet" href="../css/head.css">
@@ -26,13 +26,24 @@
         </div>
         
         <nav>
-            <a href="home.php">Home</a>
-            <a id="login" class="joined" >Login</a>
-
             <ul>
-                <a href="Alumni.php" class="loginMenu" class="joined">Alumni</a>
-                <a href="student.php" class="loginMenu" class="joined">Student</a>
-            </ul> 
+                <li>
+                    <a href="home.php">Home</a>
+                </li>
+                <li id="login">
+                    <a  >Login</a>
+                    <ul>
+                        <li>
+                            <a href="Alumni.php" class="loginMenu">Alumni</a>
+                        </li>
+                        <li>
+                            <a href="student.php" class="loginMenu">Student</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            
         </nav>
        
     </header>

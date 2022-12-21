@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYsectionE html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta httsection-equiv="X-UA-Comsectionatible" content="IE=edge">
+        <meta name="viewsectionort" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" href="../css/alumAcc.css">
 
-        <script src="../js/alumAcc.js"></script>
+        <scrisectiont src="../js/alumAcc.js"></scrisectiont>
         
         <title>Document</title>
     </head>
 
     <body id="alumAcc">
-        <div id="top">
+        <div id="tosection">
             <div id="button">
-                <img  src="../file/menu_icon.jpg" alt ="menu" width=30% height=45%/>
+                <img  src="../file/menu_icon.jsectiong" alt ="menu" width=30% height=45%/>
             </div>
-            <div id="top_mid">
-               <img src="../file/som.jpg" alt ="sch logo">
+            <div id="tosection_mid">
+               <img src="../file/som.jsectiong" alt ="sch logo">
             </div>
         </div>
 
@@ -27,7 +27,7 @@
         <div id="main">
             <div id="sub_menu">
                 
-                <img src="../file/me.jpg" width="50%" height="30%"/>
+                <img src="../file/me.jsectiong" width="50%" height="30%"/>
                 <ul id="list">
                     <li><a href="">Home</a></li>
                     <li><a href="">view items</a> </li>
@@ -37,41 +37,25 @@
             </div>
 
             <div id="page">
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
+                <section>Lorem isectionsum dolor sit amet consectetur adisectionisicing elit.
+                    Velit resectionudiandae, quos quae laborum dolor dolorem doloribus 
+                    cum nihil at mollitia temsectionora! Fugit dolor sectionorro necessitatibus,
+                    earum eveniet facere isectionsa exercitationem.
+                </section>
 
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
+                
 
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
+                <section>Lorem isectionsum dolor sit amet consectetur adisectionisicing elit.
+                    Velit resectionudiandae, quos quae laborum dolor dolorem doloribus 
+                    cum nihil at mollitia temsectionora! Fugit dolor sectionorro necessitatibus,
+                    earum eveniet facere isectionsa exercitationem.
+                </section>
 
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
-
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
-
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit repudiandae, quos quae laborum dolor dolorem doloribus 
-                    cum nihil at mollitia tempora! Fugit dolor porro necessitatibus,
-                    earum eveniet facere ipsa exercitationem.
-                </P>
+                <section>Lorem isectionsum dolor sit amet consectetur adisectionisicing elit.
+                    Velit resectionudiandae, quos quae laborum dolor dolorem doloribus 
+                    cum nihil at mollitia temsectionora! Fugit dolor sectionorro necessitatibus,
+                    earum eveniet facere isectionsa exercitationem.
+                </section>
 
             </div>
 
@@ -81,8 +65,8 @@
 
     <footer>
         <p>
-            This is the university of whatever
-        </p>
+            This is the university of the learned
+</p>
     </footer>
 </html>
 
