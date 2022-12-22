@@ -1,11 +1,34 @@
- <!-- <?php 
-    $name = $_COOKIE['name'];
+<?php  
+    session_start();
 
-    echo $name;
- ?> -->
+    $matric = $_SESSION['matric'];
+
+    $host ='localhost';
+    $user ="root";
+    $pwd = "";
+    $dbname ='phpwork';
+
+    // SETTING CONNECTION
+    $conn = mysqli_connect($host,$user,$pwd,$dbname);
+    if(!$conn){
+        die("Unable to connect to database");
+    }
 
 
- <!DOCTYPE html>
+    $sql = "SELECT matricNo,Name,Dept FROM students WHERE matricNo =$matric";
+
+    $res = mysqli_query($conn,$sql);
+
+    $row =mysqli_fetch_assoc($res) ;
+    $name = $row['Name'];
+    $dept = $row['Dept'];
+
+
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -37,44 +60,37 @@
         <!-- STUDENT DASHBOARD -->
 
         <section id="dash">
-            <h2>STUDENT DASHBOARD</h2>
+            <h2>WELCOME <sub>STUDENT DASHBOARD</sub></h2>
         </section >
 
         <div id="main">
+
+
+
+        <!-- SUB-MENU -->
             <div id="sub_menu">
                 
-                <img src="../file/me.jpg" width="50%" height="30%"/>
+                <img src="../file/user3.png" width="50%" height="30%"/>
                 <ul id="list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#view">view items</a> </li>
-                    <li><a href="">request donation</a></li>
-                    <li><a id="logbut" href="">log out</a></li>
+                    <li><a id='homebtn' href="#home">Home</a></li>
+                    <li><a id='viewbtn' href="#view">view items</a> </li>
+                    <li><a id='requestbtn' href="request">request items</a></li>
+                    <li><a  id='logbtn'id="logbut" href="">log out</a></li>
                 </ul>
             </div>
 
+                <!-- MAIN PAGE -->
             <div  id="page">
+
+
 
                 <!-- HOME -->
                 <section class="content" id="home">
-                    <?php
-                        $host ="localhost";
-                        $user ="root";
-                        $psw="";
-                        $dbname ="phpwork";
-
-                        $conn =mysqli_connect($host,$user,$psw,$dbname);
-
-                        if(!$conn){
-                            die("could not connect to database");
-                        }
                     
-
-                        
-                    ?>
-                    MATRIC NO : <?php echo "<br>" ?>
-                    NAME :      <?php echo "<br>" ?>
-                    DEPARTMENT :    <?php echo "<br>" ?>
-                    ITEMS :  <?php echo "<br>" ?>
+                    MATRIC NO : <?php echo $matric. "<br>" ?>
+                    NAME :      <?php echo $name. "<br>" ?>
+                    DEPARTMENT :    <?php echo $dept. "<br>" ?>
+                    <!-- ITEMS :  <?php echo "<br>" ?> -->
                 </section>
 
 
@@ -93,16 +109,16 @@
                             $rowcount = mysqli_num_rows($res);
 
                             if ($rowcount> 0) {
-                                echo "id items quantity <br>";
+                                echo "S/n Qty Item <br>";
 
-                                while($row = mysqli_fetch_assoc($res)){
-                                    $tab =
-                                        "<tr> 
-                                            <td>".$row['id']."</td>
-                                            <td>".$row['item']."</td>
-                                            <td>".$row['qty']."</td> 
-                                        </tr> <br><br>";
-                                    echo $tab;
+                            while($row = mysqli_fetch_assoc($res)){
+                                $tab =
+                                    "<tr> 
+                                        <td>".$row['id'].".</td>
+                                        <td>".$row['qty']."</td>
+                                        <td>".$row['item']."</td> 
+                                    </tr> <br><br>";
+                                echo $tab;
                                 }
                             }
                             else{
@@ -113,19 +129,19 @@
                         ?>
                     </div>
 
-                    
-                    
-
                 </section>
+
+
+
 
                 <!-- ITEM REQUEST -->
 
-                <section class="content" id=""> 
+                <section class="content" id="request"> 
 
-                    <div id="request">
+                    <div>
 
                         <form method="post" action=" <?php $_PHP_SELF ?>">
-                            <input name ="sel" list="item">
+                            <input name ="select" list="item">
                             <datalist id="item">
 
                                 <?php
@@ -153,17 +169,17 @@
                         </form>
 
                         <?php 
-                            if(isset($_POST['sel'])){
-                            
-                                $sql = "INSERT INTO request(`matricNo`,`Name`,`item`) VALUES('','', $_POST['sel'])";
+                            if(isset ($_POST['select']) ){
+
+                                $item = $_POST['select'];
+                                $sql = "INSERT INTO request(`matricNo`,`Name`,`item`) 
+                                VALUES($matric,$name,$item)";
 
                                 $res = mysqli_query($conn,$sql);
 
                             }
                         ?>
                     </div>
-
-
 
                 </section>
 

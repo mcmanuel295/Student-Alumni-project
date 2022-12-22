@@ -1,6 +1,16 @@
+<?php 
+ session_start();
 
+ if(isset($_SESSION['matric'])){
+    echo "the matric no has been recorded";
+ }
+ else{
+    echo "Aje! nothing was set oo<br><br>";
+ }
+?>
 <html>
     <body>
+        <a href="./student.php">back to student login</a>
         <?php
 
             $host = "localhost" ;
@@ -16,16 +26,16 @@
                 die('invalid connection');
             }
             else{
-                echo "successful <br>";
+                echo "<br><br>successful <br>";
 
-                if(isset($_COOKIE['age'])){
+                $person ='170805008';
+                
 
-                    echo "cookie is set";
-                    echo $_COOKIE['age'];
-                }
-                else{
-                    echo "who are you?";
-                }
+                $sql = "SELECT matricNo FROM students WHERE EXIST (SELECT  matricNo FROM students WHERE matricNo =$person";
+                $res = mysqli_query($conn,$sql);
+
+                
+                
             }
 
         ?>

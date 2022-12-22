@@ -10,19 +10,29 @@ footer{
 #footer{
     bottom: 0px;
 }
-
+/* 
 #footer_section{
     border:none;
-}
+} */
 
 #footer_section a{
-    width: 20px;
+    width: 100%;
     height: 40px;
     display:inline-block;
 }
 
 .icons{
-    width: 70%;
-    height: 70%;
+    width: 10%;
+    height: 10%;
     display:inline-block;
+}
+
+span{
+    display: inline-block;
+    font-size: 200px;
+}
+footer section div{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 }
