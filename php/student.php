@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    if( isset( $_REQUEST['matric']) && isset( $_REQUEST['pass']) ){
-        $matric = $_REQUEST['matric'];
-        $pass =$_REQUEST['pass'];
+    if( isset( $_REQUEST['matric']) and isset( $_REQUEST['pass']) ){
+        $matric = htmlspecialchars($_REQUEST['matric']);
+        $pass =htmlspecialchars($_REQUEST['pass']);
 
         // LOGIN DETAILS
 
@@ -12,32 +12,46 @@
         $dbname ='phpwork';
 
         // SETTING CONNECTION
+
         $conn = mysqli_connect($host,$user,$pwd,$dbname);
         if(!$conn){
             die("Unable to connect to database");
+
+        }else{
+
+            // CHECKING FOR INVALID LOGIN INPUT
+            try {
+
+                $sql ="SELECT matricNo,password FROM students 
+                WHERE matricNo =$matric && password =$pass" ;
+
+                $res = mysqli_query($conn,$sql);
+
+                if (!$res) {
+                    
+                    throw new Exception($ex);
+                }
+
+            } 
+            catch (Exception $e) {
+                
+                header('Location:./student.php?invalid username or password');
+            }
+        
+            $rowcount = mysqli_num_rows($res);
+
+            if($rowcount >0){
+
+                $_SESSION['matric'] =$matric ;
+                header("Location:./studAcc.php?#home");
+
+            }
+            else{
+                header('Location:./student.php?invalid matric number or password');
+            }
         }
-
-        // CHECKING IF USER EXIST
-
-        $sql ="SELECT matricNo,password FROM students 
-        WHERE matricNo =$matric && password =$pass" ;
-
-        $res = mysqli_query($conn,$sql);        
-        $rowcount = mysqli_num_rows($res);
-
-
-        if($rowcount >0){
-
-            $_SESSION['matric'] =$matric ;
-            header("Location:./studAcc.php?#home");
-
-        }
-        else{
-            die("nothing was returned") ;
-            header('Location:./student.php?invalid matric number or password');
-        }
-
     }
+
     require('./head.php');
 ?>
 

@@ -37,7 +37,7 @@
                             <a href="Alumni.php" class="loginMenu">Alumni</a>
                         </li>
                         <li>
-                            <a href="student.php" class="loginMenu">Student</a>
+                            <a href="student.php" class="loginMenu">Students</a>
                         </li>
                     </ul>
                 </li>

@@ -1,12 +1,9 @@
-
-
 <?php
-require('./head.php');
- 
+    session_start();
+    if( isset( $_REQUEST['matric']) && isset( $_REQUEST['pass']) ){
+        $matric = htmlspecialchars($_REQUEST['matric']);
+        $pass =htmlspecialchars($_REQUEST['pass']);
         
-    if( isset( $_REQUEST['matric']) && isset( $_REQUEST['psw']) ){
-        $matric = $_REQUEST['matric'];
-        $psw =$_REQUEST['psw'];
 
         // LOGIN DETAILS
 
@@ -15,38 +12,44 @@ require('./head.php');
         $pwd = "";
         $dbname ='phpwork';
 
-            // SETTING CONNECTION
+        // SETTING CONNECTION
         $conn = mysqli_connect($host,$user,$pwd,$dbname);
         if(!$conn){
-            die("invalid connection");
-        }
+            die("Unable to connect to database");
+        }else{
 
+            // CHECKING FOR INVALID LOGIN INPUT
 
-        $sql ='SELECT matricNo,password FROM alumni' ;
-        $res = mysqli_query($conn,$sql);
-        $rowcount = mysqli_num_rows($res);
+            try{
+                $sql ="SELECT matric,password FROM alumni
+                WHERE matric =$matric && password =$pass" ;
 
+                $res = mysqli_query($conn,$sql);        
+                
 
-        if($rowcount >0){
-            
-            // CHECK IF USER EXISTS
-
-            while($row = mysqli_fetch_assoc($res)){
-                if( ($matric !== $row['matricNo']) || ($psw !== $row['password']) ){
-                    die('Invalid matric number or password');
-                    // header("Location:./student.php?invalid user");
+                if(!$res){
+                    throw new Exception($ex);
                 }
-                    
             }
-            setcookie("age",$matric,time()+(3600*3));            
-            header("Location:./attempt.php?welcome");
-        }
-        else{
-            die("nothing was returned") ;
+
+            catch(Exception $ex){
+                header('Location:./alumni.php?invalid username or password');
+            }
+            
+            $rowcount = mysqli_num_rows($res);
+            if($rowcount >0){
+
+                $_SESSION['matric'] =$matric ;
+                header("Location:./alumAcc.php?#home");
+            }
+            else{
+                echo("nothing was returned") ;
+                header('Location:./alumni.php?invalid matric number or password');
+            }
         }
 
-    }
-
+    }-
+    require('./head.php');
 
 ?>
 
@@ -59,25 +62,19 @@ require('./head.php');
             
             Matric no: <input autofocus class="alumni_input" type="text" name ="matric" id="matric">
             <?php echo "<br/> <br/>"?>
-            Password: <input class="alumni_input" type="psw">
+            Password: <input class="alumni_input" type="password" name="pass">
 
             <?php echo "<br/> <br/>"?>
 
             <input id="alum_sub" type="submit">
 
-        </form  >
+        </form>
     </div>
 </body>
 
+
+
+
 <?php
 require('./footer.php')
-?>
-
-
-<?php 
-    if( (isset($_REQUEST['matric']) && isset( $_REQUEST['psw'])) ==false){
-        echo "invalid matric number or password ";
-        exit();
-    }
-    
 ?>

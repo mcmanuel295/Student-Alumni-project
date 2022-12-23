@@ -129,10 +129,15 @@ a{
 
 /* MAIN PAGE */
 
+#page{
+    width: 100%;
+}
 
 #page section{
     width: 100%;
+    height: auto;
     padding: 5% 1%;
+    position:absolute;
 }
 
 #home{
@@ -140,17 +145,22 @@ a{
     font-weight: bolder;
     display: unset;
     font-family: Arial, Helvetica, sans-serif;
+    visibility: hidden;
 }
 
 #view{
     font-size: xx-large;
     font-weight: bolder;
-    display: none;
+    visibility: hidden;
+   
 }
 
 #request{
     display: unset;
     padding-left: 5%;
-    display: none;
-    
+    visibility: hidden;    
+}
+
+#log{
+    visibility: hidden;
 }

@@ -13,17 +13,17 @@
     if(!$conn){
         die("Unable to connect to database");
     }
+    else{
 
+        $sql = "SELECT matricNo,Name,Dept FROM students WHERE matricNo =$matric";
+        $res = mysqli_query($conn,$sql);
+        
+        $row =mysqli_fetch_assoc($res) ;
+        $name = $row['Name'];
+        $dept = $row['Dept'];
 
-    $sql = "SELECT matricNo,Name,Dept FROM students WHERE matricNo =$matric";
-
-    $res = mysqli_query($conn,$sql);
-
-    $row =mysqli_fetch_assoc($res) ;
-    $name = $row['Name'];
-    $dept = $row['Dept'];
-
-
+    }     
+       
 
 ?>
 
@@ -60,7 +60,7 @@
         <!-- STUDENT DASHBOARD -->
 
         <section id="dash">
-            <h2>WELCOME <sub>STUDENT DASHBOARD</sub></h2>
+        <sub> STUDENT DASHBOARD </sub><h2>WELCOME <?php echo $name ?></h2>
         </section >
 
         <div id="main">
@@ -72,20 +72,19 @@
                 
                 <img src="../file/user3.png" width="50%" height="30%"/>
                 <ul id="list">
-                    <li><a id='homebtn' href="#home">Home</a></li>
-                    <li><a id='viewbtn' href="#view">view items</a> </li>
-                    <li><a id='requestbtn' href="request">request items</a></li>
-                    <li><a  id='logbtn'id="logbut" href="">log out</a></li>
+                    <li><a  id='homebtn' href="#home">Home</a></li>
+                    <li><a  id='viewbtn' href="#view">view items</a> </li>
+                    <li><a  id='reqbtn' href="#request">request items</a></li>
+                    <li><a  id='logbtn'id="logbut" href="./student.php">log out</a></li>
                 </ul>
             </div>
+            
 
                 <!-- MAIN PAGE -->
             <div  id="page">
 
-
-
                 <!-- HOME -->
-                <section class="content" id="home">
+                <section class='sec' id="home">
                     
                     MATRIC NO : <?php echo $matric. "<br>" ?>
                     NAME :      <?php echo $name. "<br>" ?>
@@ -97,7 +96,7 @@
 
                 <!-- VIEW ITEMS -->
 
-                <section class="content" id="view"> 
+                <section class='sec' id="view"> 
 
                     <!-- ITEM LIST -->
                     <div id="list">
@@ -136,16 +135,16 @@
 
                 <!-- ITEM REQUEST -->
 
-                <section class="content" id="request"> 
+                <section class='sec' id="request"> 
 
                     <div>
-
+                            <!-- CREATING DATALIST -->
                         <form method="post" action=" <?php $_PHP_SELF ?>">
-                            <input name ="select" list="item">
-                            <datalist id="item">
+                            <input list="store" name ="select">
+                            <datalist id="store">
 
                                 <?php
-                                    $sql = 'SELECT * FROM items';
+                                    $sql = 'SELECT * FROM items WHERE qty >0';
 
                                     $res =mysqli_query($conn,$sql);
 
@@ -169,13 +168,24 @@
                         </form>
 
                         <?php 
+
+                            // ADDING REQUEST TO DATABASE
                             if(isset ($_POST['select']) ){
 
                                 $item = $_POST['select'];
-                                $sql = "INSERT INTO request(`matricNo`,`Name`,`item`) 
-                                VALUES($matric,$name,$item)";
-
+                                $sql = "SELECT * FROM request WHERE matricNo = $matric";
                                 $res = mysqli_query($conn,$sql);
+                                $rowCount =mysqli_num_rows($res);
+
+                                if($rowCount>0 ){
+                                    echo "you have requested before Not allowed now";
+                                }
+                                else{
+
+                                    $sql= "INSERT INTO request(matricNo,Name,items) VALUES('$matric', $name,$item)";
+                                    $res = mysqli_query($conn,$sql);
+                                }
+
 
                             }
                         ?>
@@ -188,15 +198,10 @@
 
                 <!-- LOG OUT -->
 
-                <section class="content" id="log">
+                <section class='sec' id="log">
 
                     <?php 
-                        $scr = "<script style='margin:auto'>confirm('do you want to log out?')</script>" ;
-                        // echo $scr;
-
-                        // if($scr){
-                        //     header('Location:./student.php');
-                        // }
+                        
                     ?>
                 </section>
 
@@ -208,7 +213,12 @@
 
     <footer>
         <p>
-            This is the university of whatever
+            This is the university of whatever. Lorem ipsum
+             dolor, sit amet consectetur adipisicing elit. 
+             Nesciunt voluptates quisquam nulla quia voluptas. 
+             Tenetur deserunt voluptatem numquam aliquid aperiam
+              laborum voluptate incidunt distinctio, aut temporibus
+               est voluptatum nesciunt! Consectetur?
         </p>
     </footer>
 </html>
