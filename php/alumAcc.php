@@ -50,7 +50,7 @@
                 <img  src="../file/menu_icon.jpg" alt ="menu" width=30% height=45%/>
             </div>
             <div id="top_mid">
-               <img src="../file/som.jpg" alt ="sch logo">
+                <h2>UNIVERSITY OF THE LEARNED</h2>
             </div>
         </div>
 
@@ -81,23 +81,13 @@
 
                 <!-- HOME -->
                 <section class='sec' id= "home">
+
                     <?php
-                        $host ="localhost";
-                        $user ="root";
-                        $psw="";
-                        $dbname ="phpwork";
-
-                        $conn =mysqli_connect($host,$user,$psw,$dbname);
-
-                        if(!$conn){
-                            die("could not connect to database");
-                        }
-                
-
                     echo "HOME<br>" ;   
                     ?>
-                    MATRIC NO : <?php echo $matric. "<br>" ?>
-                    NAME :      <?php echo $name. "<br>" ?>
+
+                    MATRIC NO : <?php echo $matric. "<br><br>" ?>
+                    NAME :      <?php echo $name. "<br><br>" ?>
                     DEPARTMENT :    <?php echo $dept. "<br>" ?>
                     <!-- ITEMS :  <?php echo "<br>" ?> -->
                     
@@ -109,7 +99,7 @@
                     
                     <?php
                         
-                        echo "ITEMS AVAILABLE<br>";
+                        echo "ITEMS AVAILABLE<br><br>";
                         $sql = "SELECT * FROM items" ;
                         $res = mysqli_query($conn,$sql);
                         $rowcount = mysqli_num_rows($res);
@@ -123,7 +113,7 @@
                                         <td>".$row['id'].".</td>
                                         <td>".$row['qty']."</td>
                                         <td>".$row['item']."</td> 
-                                    </tr> <br><br>";
+                                    </tr> <br>";
                                 echo $tab;
                             }
                         }
@@ -138,14 +128,18 @@
 
                 <!-- DONATE ITEMS -->
                 <section class='sec' id="donate">
+                    
+                    <?php 
+                        echo "<h2>DONATION</h2>" ; 
+                    ?>
 
                     <form method="post" action=" <?php $_PHP_SELF ?>">
                     <?PHP echo "DONATION LIST<br>" ?>    
-                    <input list="don">
+                    <input name="sel" list="don">
                         <datalist id="don">
                             
                             <option>mattress</option>
-                            <option>refrigerator</option>
+                            <option>Refrigerator</option>
                             <option>pot</option>
                             <option>cupboard</option>
                             <option>table</option>
@@ -154,6 +148,7 @@
                             <option>box</option>
                             <option>clothes</option>
                             <option>books</option>
+                            <option>others</option>
                         </datalist>
 
                         <input type="submit">
@@ -165,11 +160,25 @@
                             
 
 
-                            $rowcount =mysqli_num_rows($res);
+                            $sql = "SELECT * FROM items WHERE item = '$item'";
+                            $res = mysqli_query($conn,$sql);
+                        
+                            $rowcount = mysqli_num_rows($res);
+
                             if($rowcount>0){
-                                $sql = "INSERT INTO items (`item`) VALUES('$item)";
+
+                                $qty = "SELECT qty FROM items WHERE item = '$item'";
+                                $res = mysqli_query($conn,$qty);
+                                
+                                $row =mysqli_fetch_assoc($res);
+                                $qty = $row['qty']+1;
+                                
+                                
+                                $sql = "UPDATE items SET qty= '$qty' WHERE item = '$item'";
+                                $res = mysqli_query($conn,$sql);
                             }
                             else{
+
                                 $sql="INSERT INTO items(`item`,`qty`) VALUES('$item',1)";
                                 $res = mysqli_query($conn,$sql);
                             }
@@ -183,12 +192,17 @@
                 <!-- VIEW REQUESTS TO APPROVE OR DECLINE -->
                 <section class='sec' id="request">
 
+                    <?php 
+                        echo "<h2>REQUEST FROM STUDENTS</h2>" ; 
+                    ?>
+
                     <form>
 
                         <?php 
 
                             echo "VIEW REQUEST<br>";
-                            $col = array() ;
+                            $str = array() ;
+
                             $sql = "SELECT * FROM request";
 
                             $res = mysqli_query($conn,$sql);
@@ -198,33 +212,60 @@
                             if($rowcount>0){
                                 echo "A. D. Matric Name Item  <br>";
 
+
                                 while($row = mysqli_fetch_assoc($res)){
                                     $matric =$row['matricNo'];
+                                    $name = $row['Name'];
+                                    
                                     
                                     $tab =
                                         "<tr> 
-                                            <td><input type='radio' class ='A' name='" .$row['matricNo']."'></td>
-                                            <tr><input type='radio' class='D' name ='".$row['matricNo'] ."'>
+                                            <td><input type='radio' value='A' class ='A' name='" .$matric ."'></td>
+                                            <td><input type='radio' value='B' class='D' name ='".$matric ."'></td>
                                             <td>".$row['matricNo'].".</td>
                                             <td>".$row['Name']."</td>
-                                            <td> '".$row['items']."'</td> 
-                                        </tr><br>";
-                                        $col["$matric"]=  'as';
+
+                                        </tr>"
+                                        .$str['age']= $_POST[$matric]."
+                                        
+                                        
+                                    
+                                        
+                                        <br>";
+                                                                           
+
+                                        // $str['$matric']= $_POST['matric']."
+                                        
                                         echo $tab;
                                 }
-                                echo "<input type='submit' >";
+                               echo "<input name='sub' type='submit'>";
                             }
                             else{
-                                echo "Aje nothing was returned";
+                                echo "Nothing was returned";
                             }
                         ?>
                     </form>
                     <?php
-                        if( isset($col)) {
-
+                        if( isset($_POST['sub'])) {
+                            echo "This one is working oo";
+                            $get =$_POST[$matric]   ;
                             echo "<br>";
-                            $len =count($col);
+                            $len =count($str);
+                            echo $len. "<br>" ;
+
+
+                            foreach ($str as $key => $value) {
+                                echo " key : ".$key. " and value :" ;
+                            }
+
+
+
+
+
+
+
                             // for ($i=0; $i < $len; $i++) { 
+                                
                             //     if($col['$matric']==='A'){
                             //         $sql ="INSERT INTO students WHERE matricNo =$matric" and "DELETE FROM request WHERE matricNo =$matric";
 
@@ -234,12 +275,13 @@
                             //         $sql = "DELETE FROM request WHERE matricNo =$matric";
                             //         $res =mysqli_query($conn,$sql);
                             //     }
+
                             // }
 
                         }
-                        else{
-                            header('location:./alumAcc.php?#request');
-                        }
+                        // else{
+                            //header('location:./alumAcc.php?#request');
+                        // }
 
                     ?>
                     

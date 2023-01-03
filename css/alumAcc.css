@@ -21,8 +21,9 @@ a:hover{
     height:2%;
     display:grid;
     grid-template-columns: 1fr 10fr;
-    grid-template-rows: 60%;
+    grid-template-rows: 100%;
     border: green dashed;
+    background-image: url(../file/flower.jpg);
     
 }
 
@@ -43,14 +44,12 @@ img[alt='menu']{
 
 #top_mid{
     padding: 1%;
-    background-color: yellowgreen;
 }
 
-#top_mid > img{
-    margin: 0px 0px 0px 20%;
-    height: 100%;
-    width: 30%;
-    background-color: blue;
+#top_mid > h2{
+    margin: 0px 0px 0px 5%;
+    background-color: transparent;
+    font-size: xx-large;
     
 }
 
@@ -68,7 +67,6 @@ section{
 
 
  #page section{
-    width: 100%;
     padding: 5% 1%;
 }
 
@@ -133,7 +131,6 @@ a{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 #page section{
-    width: 100%;
     height:auto;
     padding: 5% 1%;
     position:absolute;
@@ -172,3 +169,6 @@ a{
 }
 
 
+footer{
+    border: solid rgb(18, 231, 18);
+}

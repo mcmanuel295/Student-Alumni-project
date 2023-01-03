@@ -51,23 +51,20 @@
                 <img  src="../file/menu_icon.jpg" alt ="menu" width=30% height=45%/>
             </div>
             <div id="top_mid">
-               <img src="../file/som.jpg" alt ="sch logo">
+                <h2>UNIVERSITY OF THE LEARNED</h2>
             </div>
         </div>
 
         <!-- MAIN BODY -->
 
         <!-- STUDENT DASHBOARD -->
-
         <section id="dash">
-        <sub> STUDENT DASHBOARD </sub><h2>WELCOME <?php echo $name ?></h2>
+            <sub> STUDENT DASHBOARD </sub><h2>WELCOME <?php echo $name ?></h2>
         </section >
 
         <div id="main">
 
-
-
-        <!-- SUB-MENU -->
+            <!-- SUB-MENU -->
             <div id="sub_menu">
                 
                 <img src="../file/user3.png" width="50%" height="30%"/>
@@ -85,17 +82,19 @@
 
                 <!-- HOME -->
                 <section class='sec' id="home">
+                    <?php
+                        echo "HOME<br>" ;   
+                    ?>
                     
-                    MATRIC NO : <?php echo $matric. "<br>" ?>
-                    NAME :      <?php echo $name. "<br>" ?>
-                    DEPARTMENT :    <?php echo $dept. "<br>" ?>
+                    MATRIC NO : <?php echo $matric. "<br> <br>" ?>
+                    NAME :      <?php echo $name. "<br><br>" ?>
+                    DEPARTMENT :    <?php echo $dept. "<br><br>" ?>
                     <!-- ITEMS :  <?php echo "<br>" ?> -->
                 </section>
 
 
 
                 <!-- VIEW ITEMS -->
-
                 <section class='sec' id="view"> 
 
                     <!-- ITEM LIST -->
@@ -103,12 +102,13 @@
 
                         <?php
 
+                            echo "ITEMS AVAILABLE<br><br>" ;
                             $sql = "SELECT * FROM items" ;
                             $res = mysqli_query($conn,$sql);
                             $rowcount = mysqli_num_rows($res);
 
                             if ($rowcount> 0) {
-                                echo "S/n Qty Item <br>";
+                                echo "s/n Qty Item <br>";
 
                             while($row = mysqli_fetch_assoc($res)){
                                 $tab =
@@ -134,9 +134,11 @@
 
 
                 <!-- ITEM REQUEST -->
-
                 <section class='sec' id="request"> 
 
+                    <?php 
+                        echo "<h2>REQUEST</h2>" ; 
+                    ?>
                     <div>
                             <!-- CREATING DATALIST -->
                         <form method="post" action=" <?php $_PHP_SELF ?>">

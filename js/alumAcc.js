@@ -63,4 +63,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     })
     
+
+    let rad =document.getElementsByName('170805009').firstCHild.value = 'eret'
+    alert(` the value of the radiobutton is :${rad}`)
+
+
+    // function request(){
+    //     alert('this is working!!! ')
+    // }
 })
