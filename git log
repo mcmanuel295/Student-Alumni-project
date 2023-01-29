@@ -1,0 +1,78 @@
+[33mcommit d317ca66ff1adb5bae6ee376546bcf8765855f7d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Tue Jan 3 10:58:44 2023 +0100
+
+    adjustment
+    
+    made adjustments to files
+
+[33mcommit 679ffe518fae5ac499b1fd367f728ef749d8e9b7[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Fri Dec 23 12:26:33 2022 +0100
+
+    adjustment
+
+[33mcommit 5e8557de1994e41688142c829f65ebf43d62f4e5[m
+Merge: b3c8e7d 2f4744f
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Thu Dec 22 17:41:48 2022 +0100
+
+    Merge branch 'main' of https://github.com/mcmanuel295/csc415-Alumni-project
+
+[33mcommit b3c8e7dd84fd65c88cbdffaa2344df696faab2e3[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Thu Dec 22 17:41:06 2022 +0100
+
+    added database text_file
+    
+    this shows the structure of the database used in the project
+
+[33mcommit 2f4744fbacd85b317aa895c69e89eeb2ce5fcc62[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Thu Dec 22 17:41:06 2022 +0100
+
+    database textfile
+    
+    this shows the structure of the database used in the project
+
+[33mcommit b86290e9312df29702e1d9d9148b86ffe908f0cc[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Thu Dec 22 17:27:48 2022 +0100
+
+    removed redundant files
+
+[33mcommit 5a85ec95ff854eb6cfe1e529c6249a6a40a9ec90[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Thu Dec 22 07:58:37 2022 +0100
+
+    adjustment
+
+[33mcommit 0c54ce96ab13db4ba2d28b01405af64b449427ec[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Wed Dec 21 13:01:32 2022 +0100
+
+    adjustment
+
+[33mcommit 22275b922012302a055df07e4c5458c878b0182f[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Tue Dec 20 20:22:58 2022 +0100
+
+    adjustment
+
+[33mcommit c7792dff82e788c6c8634e899244027a0683d560[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Tue Dec 20 19:07:29 2022 +0100
+
+    different pages
+
+[33mcommit 105304a98d97c221f0831ffcff04c8d896640351[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Tue Dec 6 03:19:20 2022 +0100
+
+    Update README.md
+
+[33mcommit 85e3264f04b8eb2e27035a33e78eb57c6694fc01[m
+Author: Mcmanuel <80867448+mcmanuel295@users.noreply.github.com>
+Date:   Sat Dec 3 11:07:00 2022 +0100
+
+    Initial commit
